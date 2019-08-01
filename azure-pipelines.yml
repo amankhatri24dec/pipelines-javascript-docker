@@ -17,16 +17,12 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
 - task: Kubernetes@1
   inputs:
     connectionType: 'Azure Resource Manager'
-    azureSubscriptionEndpoint: '8a12233f-0c64-4e5c-96a3-b7bf8a10adfb'
+    azureSubscriptionEndpoint: 'Visual Studio Enterprise(ee1c4206-c94f-4d29-984c-142c1181c3a8)'
     azureResourceGroup: 'rgcicdaks'
     kubernetesCluster: 'cluster1'
-    command: run
-    secretType: 'dockerRegistry'
-    containerRegistryType: 'Azure Container Registry'
-    azureSubscriptionEndpointForSecrets: 'Visual Studio Enterprise(ee1c4206-c94f-4d29-984c-142c1181c3a8)'
-    azureContainerRegistry: 'containerregcicd.azurecr.io'
-    secretName: 'testsecretname'
+    command: 'login'
     versionSpec: '1.12.8'
