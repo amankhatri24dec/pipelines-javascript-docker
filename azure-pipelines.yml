@@ -26,3 +26,15 @@ steps:
     kubernetesCluster: 'cluster1'
     command: 'login'
     versionSpec: '1.12.8'
+
+- task: Kubernetes@1
+  inputs:
+    connectionType: 'Kubernetes Service Connection'
+    command: 'run'
+    arguments: 'kubectl get nodes'
+    secretType: 'dockerRegistry'
+    containerRegistryType: 'Azure Container Registry'
+    azureSubscriptionEndpointForSecrets: 'Visual Studio Enterprise(ee1c4206-c94f-4d29-984c-142c1181c3a8)'
+    azureContainerRegistry: 'containerregcicd.azurecr.io'
+    secretName: 'testsecret1'
+    versionSpec: '1.12.8'
